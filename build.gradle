@@ -37,6 +37,7 @@ dependencies {
     compile("org.webjars:bootstrap:3.3.7")
     compile("org.thymeleaf:thymeleaf")
     compile("org.thymeleaf:thymeleaf-spring4")
+    compile("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect")
 }
 
 task buildDocker(type: Docker, dependsOn: build) {

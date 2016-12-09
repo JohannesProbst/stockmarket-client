@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{webjars/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet"/>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link th:href="@{/css/ie10-viewport-bug-workaround.css}" rel="stylesheet"/>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom styles -->
+    <link th:href="@{/css/layout.css}" rel="stylesheet"/>
+
+    <title>Layout Page</title>
+
+</head>
+<body>
+    <nav  class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div class="navbar-brand" style="color: white; font-size: 36px; font-weight: bold" layout:fragment="custom-header">
+                    MyStock.com
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-sm-3 col-md-2 sidebar">
+                <ul class="nav nav-sidebar">
+                    <li></li>
+                </ul>
+                <ul class="nav nav-sidebar">
+                    <li><a href="#">Stockmarket</a></li>
+                </ul>
+                <ul class="nav nav-sidebar">
+                    <li><a href="">Portfolio</a></li>
+                </ul>
+                <ul class="nav nav-sidebar">
+                    <li></li>
+                </ul>
+                <ul class="nav nav-sidebar">
+                    <li></li>
+                </ul>
+                <ul class="nav nav-sidebar">
+                    <li></li>
+                </ul>
+                <ul class="nav nav-sidebar">
+                    <li><a href="">Logout</a></li>
+                </ul>
+            </div>
+            <!--Content-->
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                <h1 class="page-header"></h1>
+                <div layout:fragment="content">
+                </div>
+                <h2 class="sub-header"></h2>
+                <div class="table-responsive"></div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-inverse navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div class="navbar-brand" style="color: white" layout:fragment="custom-footer">
+                    Custom footer here
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script th:src="@{/js/ie10-viewport-bug-workaround.js}"></script>
+    <script th:src="@{webjars/jquery/1.11.1/jquery.min.js}"/>
+    <script th:src="@{webjars/bootstrap/3.3.7/js/bootstrap.min.js}"/>
+</body>
+</html>

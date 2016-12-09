@@ -1,22 +1,24 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorator="layout">
 
 <head>
     <titel>Home</titel>
-    <link href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="webjars/bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet"/>
 
 </head>
 <body>
-    <h1>
-        <span th:text="#{welcome.message}"/>
-    </h1>
-    <p>
-        Current time is <span th:text="${serverTime}"/>
-
-    </p>
-    <script src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"/>
+    <div layout:fragment="content">
+        <h1>
+            <span th:text="#{welcome.message}"/>
+        </h1>
+        <p>
+            Current time is <span th:text="${serverTime}"/>
+        </p>
+    </div>
+    <footer>
+        <p layout:fragment="custom-footer">This is some footer content from content page 1</p>
+    </footer>
 </body>
 
 </html>

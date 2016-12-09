@@ -16,7 +16,7 @@ import java.util.Locale;
 @Controller
 public class HomeCtrl {
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
     public String getHome(Model model) {
 
         DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, Locale.getDefault());
