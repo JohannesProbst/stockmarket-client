@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      layout:decorator="layout">
+<head>
+    <title>MyStock - Stockmarket</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <h1>
+        <span th:text="#{stockmarket.header}"/>
+    </h1>
+</div>
+<footer>
+    <p layout:fragment="custom-footer">
+        Logged user: <span sec:authentication="name">Bob</span>
+        Roles: <span sec:authentication="principal.authorities">[ROLE_USER, ROLE_ADMIN]</span>
+    </p>
+</footer>
+</body>
+</html>
