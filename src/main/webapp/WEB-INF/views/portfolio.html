@@ -4,13 +4,48 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
       layout:decorator="layout">
 <head>
+    <!-- Custom styles -->
+
+
     <title>MyStock - Portfolio</title>
 </head>
 <body>
 <div layout:fragment="content">
-    <h1>
-        <span th:text="#{portfolio.header}"/>
-    </h1>
+
+    <h2 th:text="#{portfolio.header}">Section Title</h2>
+
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th th:text="#{portfolio.table.header.idStock}">#</th>
+                    <th th:text="#{portfolio.table.header.idStock}">Header 1</th>
+                    <th th:text="#{portfolio.table.header.amount}">Header 2</th>
+                    <th th:text="#{portfolio.table.header.price}">Header 3</th>
+                    <th th:text="#{portfolio.table.header.type}">Header 4</th>
+                    <th th:text="#{portfolio.table.header.timestamp}">Header 5</th>
+                    <th th:text="#{portfolio.table.header.idBoerse}">Header 6</th>
+                    <th th:text="#{portfolio.table.header.signature}">Header 7</th>
+                    <th th:text="#{portfolio.table.header.idBank}">Header 8</th>
+                    <th th:text="#{portfolio.table.header.idCustomer}">Header 9</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="sb : ${orders}">
+                    <td th:text="${sb.id}">id 1</td>
+                    <td th:text="${sb.idStock}">content 2</td>
+                    <td th:text="${sb.amount}">content 3</td>
+                    <td th:text="${sb.price}">content 4</td>
+                    <td th:text="${sb.type}">content 5</td>
+                    <td th:text="${{sb.timeStamp}}">content 6</td>
+                    <td  th:text="${sb.idBoerse}">content 7</td>
+                    <td  th:text="${sb.signature}">content 8</td>
+                    <td  th:text="${sb.idBank}">content 9</td>
+                    <td  th:text="${sb.idCustomer}">content 10</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
 </div>
 <footer>
     <p layout:fragment="custom-footer">
