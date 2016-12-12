@@ -36,6 +36,7 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-security")
     compile("org.webjars:bootstrap:3.3.7")
+    compile("org.webjars.bower:bootstrap-toggle:2.2.2")
     compile("org.thymeleaf:thymeleaf")
     compile("org.thymeleaf:thymeleaf-spring4")
     compile("org.thymeleaf.extras:thymeleaf-extras-springsecurity4")

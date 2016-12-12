@@ -15,14 +15,14 @@
 
       <form class="form-signin" th:action="@{/appLogin}" method="POST">
           <div th:if="${param.error}" class="alert alert-danger">
-              <p>
-                  Invalid username or password.
+              <p th:text="#{login.error}">
+                  Error Message
               </p>
           </div>
 
           <div th:if="${param.logout}" class="alert alert-success">
-              <p>
-                  You have been logged out successfully.
+              <p th:text="#{login.logout}">
+                  Logout Success Message
               </p>
           </div>
         <h2 class="form-signin-heading">Please sign in</h2>

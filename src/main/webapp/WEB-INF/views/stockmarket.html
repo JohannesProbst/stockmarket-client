@@ -8,9 +8,29 @@
 </head>
 <body>
 <div layout:fragment="content">
-    <h1>
-        <span th:text="#{stockmarket.header}"/>
-    </h1>
+
+    <h2 th:text="#{stockmarket.header}">Section Title</h2>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th th:text="#{stockmarket.table.header.id}">#</th>
+                <th th:text="#{stockmarket.table.header.name}">Header 1</th>
+                <th th:text="#{stockmarket.table.header.price}">Header 2</th>
+                <th th:text="#{stockmarket.table.header.idBoerse}">Header 3</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="sb : ${stockmarket}">
+                <td th:text="${sb.id}">id 1</td>
+                <td th:text="${sb.name}">content 2</td>
+                <td th:text="${sb.price}">content 3</td>
+                <td th:text="${sb.idBoerse}">content 4</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 <footer>
     <p layout:fragment="custom-footer">
