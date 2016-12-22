@@ -39,15 +39,15 @@
         <div class="row">
             <div layout:fragment="custom-sidebar">
                 <!-- Sidebar -->
-                <div class="col-sm-3 col-md-2 sidebar">
+                <div class="col-sm-3 col-md-2 sidebar" th:with="view=${#httpServletRequest.getServletPath()}">
                     <ul class="nav nav-sidebar">
                         <li></li>
                     </ul>
                     <ul class="nav nav-sidebar">
-                        <li><a href="/app/secure/stockmarket.html" class="sidebar-menu-entry">Stockmarket</a></li>
+                        <li th:classappend="${#strings.endsWith(view,'stockmarket.html')? 'active' : ''}"><a href="/app/secure/stockmarket.html" class="sidebar-menu-entry">Stockmarket</a></li>
                     </ul>
                     <ul class="nav nav-sidebar">
-                        <li><a href="/app/secure/portfolio.html" class="sidebar-menu-entry">Portfolio</a></li>
+                        <li th:classappend="${#strings.endsWith(view,'portfolio.html')? 'active' : ''}"><a href="/app/secure/portfolio.html" class="sidebar-menu-entry">Portfolio</a></li>
                     </ul>
                     <ul class="nav nav-sidebar">
                         <li></li>
@@ -81,9 +81,9 @@
     <nav class="navbar navbar-inverse navbar-fixed-bottom">
         <div class="container-fluid">
             <div class="navbar-header">
-                <div class="navbar-brand" style="color: white" layout:fragment="custom-footer">
+                <p style="color: white" layout:fragment="custom-footer">
                     Custom footer here
-                </div>
+                </p>
             </div>
         </div>
     </nav>

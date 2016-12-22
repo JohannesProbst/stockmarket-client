@@ -4,114 +4,34 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
       layout:decorator="layout">
 <head>
-    <!-- Custom styles -->
-    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet"/>
-
-    <title>MyStock - Portfolio</title>
+    <title>MyStock - Stockmarket</title>
 </head>
 <body>
 <div layout:fragment="content">
 
-    <!--Select-Form-->
-    <form class="form-inline">
-        <div class="form-group">
-            <label for="selectedMarket" th:text="#{portfolio.selectMarket.placeholder}" class="sr-only">Select
-                list</label>
-            <select required="required" id="selectedMarket" class="form-control">
-                <option value="" disabled="disabled" selected="selected" hidden="hidden"
-                        th:text="#{portfolio.selectMarket.placeholder}">placeholder
-                </option>
-                <option>Stock Market 1</option>
-                <option>Stock Market 2</option>
-            </select>
-        </div>
-        <button type="submit" class="btn btn-primary" th:text="#{portfolio.selectMarket.button}">Select Button</button>
-    </form>
-    <!--space-->
-    <h2></h2>
+    <h2 th:text="#{stockmarket.header}">Section Title</h2>
 
-
-    <!--Tabs-Bar-->
-    <ul class="nav nav-tabs" style="margin-top: 5%">
-        <li class="active"><a data-toggle="tab" href="#orders" th:text="#{portfolio.tabs.orders}">Active Tab 1</a></li>
-        <li><a data-toggle="tab" href="#stocks" th:text="#{portfolio.tabs.stocks}">Tab 2</a></li>
-    </ul>
-
-    <div class="tab-content" style="margin-bottom: 5%">
-        <!--Tabs-1.Tab-->
-        <div id="orders" class="tab-pane fade in active">
-            <!--Table-->
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th th:text="#{portfolio.table.header.idStock}">#</th>
-                        <th th:text="#{portfolio.table.header.idStock}">Header 1</th>
-                        <th th:text="#{portfolio.table.header.amount}">Header 2</th>
-                        <th th:text="#{portfolio.table.header.price}">Header 3</th>
-                        <th th:text="#{portfolio.table.header.type}">Header 4</th>
-                        <th th:text="#{portfolio.table.header.timestamp}">Header 5</th>
-                        <th th:text="#{portfolio.table.header.idBoerse}">Header 6</th>
-                        <th th:text="#{portfolio.table.header.signature}">Header 7</th>
-                        <th th:text="#{portfolio.table.header.idBank}">Header 8</th>
-                        <th th:text="#{portfolio.table.header.idCustomer}">Header 9</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="sb : ${orders}">
-                        <td th:text="${sb.id}">id 1</td>
-                        <td th:text="${sb.idStock}">content 2</td>
-                        <td th:text="${sb.amount}">content 3</td>
-                        <td th:text="${sb.price}">content 4</td>
-                        <td th:text="${sb.type}">content 5</td>
-                        <td th:text="${{sb.timeStamp}}">content 6</td>
-                        <td th:text="${sb.idBoerse}">content 7</td>
-                        <td th:text="${sb.signature}">content 8</td>
-                        <td th:text="${sb.idBank}">content 9</td>
-                        <td th:text="${sb.idCustomer}">content 10</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div id="stocks" class="tab-pane fade">
-            <h3>Content-Header Tab 2</h3>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat.</p>
-        </div>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th th:text="#{portfolio.table.header.id}">#</th>
+                <th th:text="#{portfolio.table.header.name}">Header 1</th>
+                <th th:text="#{portfolio.table.header.price}">Header 2</th>
+                <th th:text="#{portfolio.table.header.idBoerse}">Header 3</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="sb : ${stockmarket}">
+                <td th:text="${sb.id}">id 1</td>
+                <td th:text="${sb.name}">content 2</td>
+                <td th:text="${sb.price}">content 3</td>
+                <td th:text="${sb.idBoerse}">content 4</td>
+            </tr>
+            </tbody>
+        </table>
     </div>
-
-    <!--order-form-->
-    <form class="form-inline">
-        <div class="form-group">
-            <label for="selectedStock" th:text="#{portfolio.order.selectStock.placeholder}" class="sr-only">Select
-                list</label>
-            <select required="required" id="selectedStock" class="form-control">
-                <option value="" disabled="disabled" selected="selected" hidden="hidden"
-                        th:text="#{portfolio.order.selectStock.placeholder}">placeholder
-                </option>
-                <option>Stock 1</option>
-                <option>Stock 2</option>
-            </select>
-        </div>
-        <div class="input-group">
-            <label class="sr-only" for="stockPrice" th:text="#{portfolio.order.price.placeholder}">input field 1</label>
-            <span class="input-group-addon">&euro;</span>
-            <input type="number" class="form-control" id="stockPrice" placeholder="placeholder"
-                   th:placeholder="#{portfolio.order.price.placeholder}"/>
-        </div>
-        <div class="form-group">
-            <label class="sr-only" for="stockAmount" th:text="#{portfolio.order.amount.placeholder}">input field
-                2</label>
-            <input type="number" class="form-control" id="stockAmount"
-                   th:placeholder="#{portfolio.order.amount.placeholder}"/>
-        </div>
-        <input type="checkbox" checked="checked" data-toggle="toggle" data-style="quick" th:attr="data-on=#{portfolio.order.type.buy}, data-off=#{portfolio.order.type.sell}" data-onstyle="success" data-offstyle="danger"/>
-        <button type="submit" class="btn btn-primary" th:text="#{portfolio.order.button}">Select Button</button>
-    </form>
 </div>
-
-<!--footer-->
 <footer>
     <p layout:fragment="custom-footer">
         Logged user: <span sec:authentication="name">Bob</span>

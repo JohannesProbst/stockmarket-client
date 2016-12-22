@@ -1,6 +1,7 @@
 package at.ac.fhsalzburg.DTO;
 
 import at.ac.fhsalzburg.util.CustomDateDeserializer;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -15,6 +16,8 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class OrderDto {
 
+    //to test with json-server this has to be changed to lower case
+    //NOTE: for productive use this has to be "Id"
     @JsonProperty("Id")
     private Long id;
     @JsonProperty("IdStock")
@@ -29,6 +32,7 @@ public class OrderDto {
     private List<TransactionDto> txHistory;
     @JsonDeserialize( using = CustomDateDeserializer.class)
     @JsonProperty("TimeStamp")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'hh:mm:ss.SS")
     private Date timeStamp;
     @JsonProperty("IdBoerse")
     private String idBoerse;

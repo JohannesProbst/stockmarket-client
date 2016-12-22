@@ -2,7 +2,7 @@ package at.ac.fhsalzburg.service;
 
 import at.ac.fhsalzburg.DTO.OrderDto;
 import at.ac.fhsalzburg.DTO.StockDto;
-import org.springframework.stereotype.Service;
+import at.ac.fhsalzburg.exception.StockExchangeConnectionException;
 
 import java.util.List;
 
@@ -30,7 +30,7 @@ public interface StockExchangeService {
      * retrieves the complete list of orders at the stock exchange
      * @return list of orders
      */
-    List<OrderDto> getAllOrder();
+    List<OrderDto> getAllOrder() throws StockExchangeConnectionException;
 
     /**
      * deletes a order with the given id
@@ -43,5 +43,7 @@ public interface StockExchangeService {
      * retrieves all available stocks from the stock exchange
      * @return list of stocks
      */
-    StockDto getAllStock();
+    List<StockDto> getAllStock();
+
+    List<OrderDto> getAllOrdersByCustomer(String name);
 }

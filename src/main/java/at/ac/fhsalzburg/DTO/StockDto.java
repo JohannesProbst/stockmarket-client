@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class StockDto {
 
     @JsonProperty("Id")
-    private Long id;
+    private String id;
     @JsonProperty("Name")
     private String name;
     @JsonProperty("Price")
@@ -18,11 +18,11 @@ public class StockDto {
     @JsonProperty("IdBoerse")
     private String idBoerse;
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public StockDto setId(Long id) {
+    public StockDto setId(String id) {
         this.id = id;
         return this;
     }
