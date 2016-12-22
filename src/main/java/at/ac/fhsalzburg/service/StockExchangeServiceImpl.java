@@ -39,7 +39,7 @@ public class StockExchangeServiceImpl implements StockExchangeService{
 
     @Override
     public OrderDto putOrder(OrderDto order) {
-        if(environment.getActiveProfiles()[1].equals("prod"))
+        if(environment.getActiveProfiles()[0].equals("prod"))
             order.setId(0L);
         order.setIdBank("bank.reimar");
         order.setTimeStamp(new Date());
