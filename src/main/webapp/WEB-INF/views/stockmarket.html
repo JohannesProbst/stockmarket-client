@@ -13,16 +13,17 @@
 <div layout:fragment="content">
 
     <!--Select-Form-->
-    <form class="form-inline">
+    <form class="form-inline" th:action="@{/app/secure/stockmarket}" method="GET">
         <div class="form-group">
-            <label for="selectedMarket" th:text="#{stockmarket.selectMarket.placeholder}" class="sr-only">Select
+            <label th:for="market" th:text="#{stockmarket.selectMarket.placeholder}" class="sr-only">Select
                 list</label>
-            <select required="required" id="selectedMarket" class="form-control">
+            <select required="required" id="market" class="form-control" name="market">
                 <option value="" disabled="disabled" selected="selected" hidden="hidden"
-                        th:text="#{stockmarket.selectMarket.placeholder}">placeholder
+                        th:text="${param.market} != null ? ${param.market[0]} : #{stockmarket.selectMarket.placeholder}">placeholder
                 </option>
-                <option>Stock Market 1</option>
-                <option>Stock Market 2</option>
+                <!--/*--><!--@thymesVar id="exchangeMarkets" type="Set<String>"--><!--*/-->
+                <option th:each="m : ${exchangeMarkets}" th:value="${m}" th:text="${m}">Stock 1
+                </option>
             </select>
         </div>
         <button type="submit" class="btn btn-primary" th:text="#{stockmarket.selectMarket.button}">Select Button</button>
@@ -125,9 +126,9 @@
     <!--/*--><!--@thymesVar id="stock" type="at.ac.fhsalzburg.DTO.StockDto"--><!--*/-->
     <form class="form-inline" th:action="@{/app/secure/stockmarket}" th:object="${newOrder}" method="POST">
         <div class="form-group">
-            <label for="selectedStock" th:text="#{stockmarket.order.selectStock.placeholder}" class="sr-only">Select
+            <label for="idStock" th:text="#{stockmarket.order.selectStock.placeholder}" class="sr-only">Select
                 list</label>
-            <select required="required" id="selectedStock" class="form-control" th:field="*{idStock}">
+            <select required="required" id="idStock" name="idStock" class="form-control">
                 <option value="" disabled="disabled" selected="selected" hidden="hidden"
                         th:text="#{stockmarket.order.selectStock.placeholder}">placeholder
                 </option>
@@ -149,6 +150,7 @@
                    th:field="*{amount}"
                    th:placeholder="#{stockmarket.order.amount.placeholder}"/>
         </div>
+        <input type="hidden" th:if="${param.market != null}" th:value="${param.market[0]}" name="idBoerse"/>
         <input type="checkbox" data-toggle="toggle" data-style="quick"
                th:attr="data-on=#{stockmarket.order.type.buy}, data-off=#{stockmarket.order.type.sell}"
                th:id="type" th:name="type"
