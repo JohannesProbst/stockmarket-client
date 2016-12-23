@@ -43,6 +43,14 @@ dependencies {
     compile("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect")
 }
 
+sourceSets{
+    main {
+        resources {
+            srcDirs "src/main/webapp"
+        }
+    }
+}
+
 task buildDocker(type: Docker, dependsOn: build) {
     //push = true
     applicationName = jar.baseName
