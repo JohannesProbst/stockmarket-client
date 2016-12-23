@@ -9,27 +9,40 @@
 <body>
 <div layout:fragment="content">
 
-    <h2 th:text="#{stockmarket.header}">Section Title</h2>
-
-    <div class="table-responsive">
+    <!--<h2 th:text="#{portfolio.header}">Section Title</h2>-->
+    <!--/*--><!--@thymesVar id="stocks" type="List<at.ac.fhsalzburg.DTO.Acquisition>"--><!--*/-->
+    <div class="table-responsive" style="height: 200px; overflow: auto">
         <table class="table table-striped">
             <thead>
             <tr>
                 <th th:text="#{portfolio.table.header.id}">#</th>
                 <th th:text="#{portfolio.table.header.name}">Header 1</th>
                 <th th:text="#{portfolio.table.header.price}">Header 2</th>
-                <th th:text="#{portfolio.table.header.idBoerse}">Header 3</th>
+                <th th:text="#{portfolio.table.header.amount}">Header 3</th>
+                <th th:text="#{portfolio.table.header.idBoerse}">Header 4</th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each="sb : ${stockmarket}">
+
+            <!--/*--><!--@thymesVar id="sb" type="at.ac.fhsalzburg.DTO.Acquisition"--><!--*/-->
+            <tr th:if="${error == null}" th:each="sb : ${stocks}">
                 <td th:text="${sb.id}">id 1</td>
                 <td th:text="${sb.name}">content 2</td>
                 <td th:text="${sb.price}">content 3</td>
-                <td th:text="${sb.idBoerse}">content 4</td>
+                <td th:text="${sb.amount} + ' ' +${sb.amountInfo}">content 4</td>
+                <td th:text="${sb.idBoerse}">content 5</td>
             </tr>
             </tbody>
         </table>
+        <div class="alert alert-info" style="text-align: center" th:classappend="'alert-info'" th:if="${stocks != null and stocks.isEmpty()}" th:text="#{portfolio.info.noPortfolio}">
+        </div>
+        <!--/*--><!--@thymesVar id="errorOrder" type="String"--><!--*/-->
+        <div class="alert alert-dismissable" style="text-align: center" th:classappend="'alert-danger'" th:if="${errorOrder != null and errorOrder == 'connection'}" th:text="#{stockexchange.error.connection}+ ' ' +  ${@environment.getProperty('stockExchange.orders')}">
+        </div>
+        <!--/*--><!--@thymesVar id="errorStock" type="String"--><!--*/-->
+        <div class="alert alert-dismissable" style="text-align: center" th:classappend="'alert-danger'" th:if="${errorStock != null and errorStock == 'connection'}" th:text="#{stockexchange.error.connection}+ ' ' +  ${@environment.getProperty('stockExchange.stock')}">
+        </div>
+
     </div>
 </div>
 <footer>

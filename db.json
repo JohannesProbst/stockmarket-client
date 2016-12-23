@@ -70,8 +70,17 @@
       "IdStock": "Amazon Inc.",
       "Amount": 10,
       "Price": 1800,
-      "Type": "Buy",
-      "TxHistory": null,
+      "Type": "Sell",
+      "TxHistory": [
+        {
+          "Amount": 5,
+          "Price": 1800
+        },
+        {
+          "Amount": 2,
+          "Price": 100
+        }
+      ],
       "TimeStamp": "2016-12-07T07:07:05.94",
       "IdBoerse": "Honolulu",
       "Signature": "",
@@ -84,7 +93,36 @@
       "Amount": 140,
       "Price": 1470,
       "Type": "Buy",
-      "TxHistory": null,
+      "TxHistory": [
+        {
+          "Amount":40,
+          "Price": 1470
+        },
+        {
+          "Amount":10,
+          "Price": 1470
+        },
+        {
+          "Amount":7,
+          "Price": 1470
+        },
+        {
+          "Amount":3,
+          "Price": 1470
+        },
+        {
+          "Amount":13,
+          "Price": 1470
+        },
+        {
+          "Amount":17,
+          "Price": 1470
+        },
+        {
+          "Amount":50,
+          "Price": 1470
+        }
+      ],
       "TimeStamp": "2016-12-10T11:15:55.94",
       "IdBoerse": "Honolulu",
       "Signature": "",
@@ -146,10 +184,27 @@
     {
       "id": 12,
       "IdStock": "Amazon Inc.",
-      "Amount": 48,
+      "Amount": 0,
       "Price": 3200,
       "Type": "Sell",
-      "TxHistory": null,
+      "TxHistory": [
+        {
+          "Amount":4,
+          "Price": 200.44
+        },
+        {
+          "Amount":15,
+          "Price": 1470
+        },
+        {
+          "Amount":11,
+          "Price": 3200
+        },
+        {
+          "Amount":18,
+          "Price": 100.50
+        }
+      ],
       "TimeStamp": "2016-12-06T17:48:02.17",
       "IdBoerse": "Honolulu",
       "Signature": "",
@@ -162,7 +217,16 @@
       "Amount": 115,
       "Price": 5500,
       "Type": "Buy",
-      "TxHistory": null,
+      "TxHistory": [
+        {
+          "Amount": 34,
+          "Price": 5500
+        },
+        {
+          "Amount": 23,
+          "Price": 100
+        }
+      ],
       "TimeStamp": "2016-12-05T12:12:15.97",
       "IdBoerse": "Afganistan",
       "Signature": "",
